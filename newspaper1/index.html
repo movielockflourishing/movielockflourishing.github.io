@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --color: #66033c;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            color: var(--color);
+            font-family: 'Yantramanav',sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.5;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        #wrapper {
+            display: flex;
+            gap: 15px;
+        }
+        .page {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border: 1px solid;
+        }
+        .bt {
+            border-top: 1px solid;
+        }
+        .br {
+            border-right: 1px solid;
+        }
+        .bb {
+            border-bottom: 1px solid;
+        }
+        .bl {
+            border-left: 1px solid;
+        }
+        .agency-name {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .agency-slogan {
+            font-size: 1.2rem;
+        }
+        .agency-address {
+            font-size: 1.2rem;
+        }
+        .agency-whatsapp {
+            background: var(--color);            
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+        .agency-whatsapp img {
+            height: 15px;
+            margin-right: 8px;
+        }
+        .agency-whatsapp span {
+            display: inline-block;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .customer-name-area {
+            display: flex;
+            gap: 5px;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 5;
+        }
+        .customer-name-area-border {
+            border-top: 2px dashed;
+            position: relative;
+            top: -1.9em;
+            opacity: 0.5;
+        }
+        .customer-title {
+            font-size: 1.5rem;
+        }
+        .customer-name {
+            
+            flex: 1;
+            font-size: 1.5rem;
+        }
+        .customer-title span {
+            font-size: 1.5rem;
+            background: #fff;
+            padding: 0 10px;
+        }
+        td:nth-child(1) { width: 20% }
+        td:nth-child(2) { width: 10% }
+        td:nth-child(3) { width: 5% }
+        td:nth-child(4) { width: 20% }
+        td:nth-child(5) { width: 10% }
+        td:nth-child(6) { width: 5% }
+        .l {
+            text-align: left;
+        }
+        .b {
+            font-weight: bold;
+        }
+        td span {
+            white-space: nowrap;
+        }
+        .customer-name-area {
+            text-align: left
+        }
+        .customer-name-area div:nth-child(1) { text-align: left; flex: 0 0 20% }
+        .customer-name-area div:nth-child(2) { text-align: left; flex: 0 0 40% }
+        .customer-name-area div:nth-child(3) { text-align: left; flex: 0 0 20% }
+        .customer-name-area div:nth-child(4) { text-align: left; flex: 0 0 20% }
+    </style>
+</head>
+<body>
+    <div id="wrapper">        
+        <div class="page" id="page">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="6">
+                        <div class="agency-name">आनंद बुक स्टॉल</div>
+                        <div class="agency-slogan">दैनिक समाचार पत्रिकाओं के विक्रेता</div>
+                        <div class="agency-address">891/9, नंदानगर, इंदौर</div>
+                        <div class="agency-whatsapp">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAkxQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////jdOBtwAAAMR0Uk5TAAUkUoq9zvf/77hOJQQKPZfg4pJFD2bM/NZ1OLz6wkcHh6VoRDNNpuuoJrXTkzt/1S7b0AwJ8B/ZIRJ79ug5EMXPyeUwGqr03d9JU5k6SpEIlgZ+/bLm10jKoONfF6MNeHrqKin1PFRXEbQD4Yien5Q0+VZk1BXDcMdpoRnLhoQ++KKDXrkewfvIFFlhLbZvwLM1i8aN2iAoqwvRhV2sj0tzdP5CTzK+bhyOL7eAWA4xcgGbdzbclWxtgkzyWxvepytgGH5SC34AAAReSURBVHichZZ/TFV1FMDPeYJmwX1P19UmK9KsCIt6NCBxxVuILnNgGg6ZYDNtD58kKTxk5Ia1nOGo1KchMiGeUa4ylR+6LFhtUa2Y9Iomo4BG2fTxw0dMhyCvc+6979d9972+f5zv9577/XzPOd/vued7EdQNlUaj2xG3ZiH+q56gehZo8k1/xZ2kcIZBhDvQFWTWgDg+FgqJUS+oNBHxT03kfvxHGblj5Fiuz8EBBYoacgYj8fiH1C9GdHiV0QsRh6XJeqFXjRjxN+6WdBl/CvQq6ZpzmvuEHlcgkoJd7NGCe74LDiUVkZeZc8PljxhnMZGE3wQDvtcJo70+JA2/52gif9AmAHRpbD31F6cXebyHxDL8MhQBkDHFzDNfeJDlM74GME2FIcjOynY61cRWBXn0dxJRQ9Kr5xGwSYtJcTtk1xjJZHMrz7J+DZ6nrVl6WotZh81gmP8zI/girZp5QUqjebrrJNNbtJDULjqfrDYnITl9ZHHuFcm4a4C7Fz7SDCd22gmG5HOE5JIb686Os3Ljp/LLbLsWkjR5GWC9HWFTDx1TTr2kXK1s2oY6TTMvfUwGKGG3oB0MmTUBiO6GJhIzTGITgpkMmBa+H4BsPqqJWLAWYCvCsk6A25OybsGI1Il3X9JE4FVyRoeWiGMA5vdk1WvIy+cJVdoEFNsACtGKBwGK9ssqwfIuyelbIQiIvcpfdYaDvgLhmifAVbS9ovFcCOTBQRIqBOP6SZo6xv4X2bnPo0yZ+SPJXTWalUZBXscDANY3vFpzC80WNw8d0UIqKOYyxL1kYXmzT11UTaJMd0i2E1Nw0M/gPHJ4CUJEBMCecp96H+4lKeYf5nh0yWtwco/b847TUYdSKs4us/qYyvZ27kzpJQBPcZmYXV6svEqmnJ9CqPqbjm93hZ/H+gTeAjBYEXfLmrcnpCUPsbQgCHeNAhy47B9u/LZiCGz3SuXoyC4y6UI5F9/BAv8Z1bgjENlI+Qg1WEg71eL5Km1bAqZYEr9t9Hs8vJXljEjgqsLl4sQ2KvvDqsOrFHd6rya5TGYkUjYu7RxjpN5M4rnPVe5D5fx6qUAb8uqkelW7nfb+rXypKEU/1A1w3BZcXYWj/aTcUCQ50NhOGVt34QO59B3b4XE3dDNG8q3zyCW5WuLDA+RdTlji1Bl2vGE9yIhUBZ6+GI74pIrT4OTJMwrCcemvhiM+rOIrLv4V3idGhKpC5VxE6yKzxoeydtV27kz5uaAgp8/bIa/Vhvjrm3Q+xcfLMwOAlMGb0gE9gcqdSEhTNl3D+0v7lBTPikvu9ua1ONPtHpVGqaOeQoWQVrpW5Yg4PvEZ5gPYc8cec8qO5mVXdIAX0U+EC1xu+qwa3wNa4krkkXvuk1FfNQ5WO9Tzmy+uSPd/xraSbval4eUCZyUrcsY7R/z+UsQGnFzhDlgCOaOny2pjva6C0JQ9UtrXRqNT/Q/8ZesAVcPVVxy19z2rVke3cpnqHdAK7D/Ux09mK6PTfQAAAABJRU5ErkJggg==" alt="">
+                            <span>9827701100</span>    
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <div class="customer-name-area">
+                            <div class="customer-title"><span style="padding-left: 0;">श्री मान</span></div>
+                            <div></div>
+                            <div class="customer-title"><span>दिनांक</span></div>
+                            <div></div>                        
+                        </div>
+                        <div class="customer-name-area-border"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="b bt">विवरण</td>
+                    <td class="b bt bl" colspan="2">रकम</td>
+                    <td class="b bt bl">विवरण</td>
+                    <td class="b bt bl" colspan="2">रकम</td>
+                </tr>
+                <tr>
+                    <td class="bt l">
+                        <span>दैनिक भास्कर</span>,<br>
+                        <span>पत्रिका</span>,
+                        <span>नई दुनिया</span>,
+                        <span>दबंग दुनिया</span>,
+                        <span>पीपुल्स समाचार</span>,<br>
+                        <span>चौथा संसार</span>,
+                        <span>फ्री प्रेस</span>,<br>
+                        <span>राज एक्सप्रेस</span>,<br>
+                        <span>टाइम्स ऑफ़ इंडिया</span>,<br>
+                        <span>इकनोमिक टाइम्स</span>,<br>
+                        <span>बिज़नेस लाइन</span>,<br>
+                        <span>इंडियन एक्स</span>,<br>
+                        <span>बी.एस.टी.</span>,
+                        <span>द हिन्दू</span>
+                        <br>
+                        <br>
+                        <span>मैगज़ीन</span>,<br>
+                        <span>गृहशोभा</span>,
+                        <span>मेरी सहेली</span>,<br>
+                        <span>वनिता</span>,
+                        <span>गृहलक्ष्मी</span>,
+                        <span>सरिता</span>,<br>
+                        <span>अहा ज़िन्दगी</span>,
+                        <span>फेमिना</span>,<br>
+                        <span>वीमेन एरा</span>,
+                        <span>कादंबनी</span>,<br>
+                        <span>साप्ताहिक सकाल</span>,<br>
+                        <span>चित्रलेखा</span>
+                    </td>
+                    <td class="bt bl">&nbsp;</td>
+                    <td class="bt bl">&nbsp;</td>
+                    <td class="l bt bl">
+                        <span>इंडिया टुडे</span>,
+                        <span>बिज़नेस टुडे</span>,<br>
+                        <span>बिज़नेस वर्ल्ड</span>,<br>
+                        <span>बिज़नेस इंडिया</span>,<br>
+                        <span>आउटलुक</span>,
+                        <span>डिजिट</span>,<br>
+                        <span>कैपिटल मार्केट</span>,<br>
+                        <span>दलाल स्ट्रीट</span>,<br>
+                        <span>प्रतियोगिता दर्पण</span>,<br>
+                        <span>चम्पक</span>,
+                        <span>रोजगार निर्माण</span>,<br>
+                        <span>बाल भास्कर</span>,<br>
+                        <span>एम्प्लॉयमेंट न्यूज़</span>
+                        <br>
+                        <br>
+                        <img style="width: 70%;margin: 0 auto;display: block;" src="https://api.qrserver.com/v1/create-qr-code/?size=255x255&data=upi%3A%2F%2Fpay%3Fpa%3Dgpay-11165222388%40okbizaxis%26cu%3DINR&color=66033c"/>
+                    </td>
+                    <td class="bt bl">&nbsp;</td>
+                    <td class="bt bl">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="bt" rowspan="2" colspan="4" style="padding: 0;">
+                        <table cellpadding="0" cellspacing="0" style="border: 0;table-layout: fixed;">
+                            <tr>
+                                <td rowspan="2">
+                                    <div>ऑनलाइन पेमेंट लिया जाता है</div>
+                                    <div>कृपया ऑनलाइन पेमेंट होने बाद </div>
+                                    <div>स्क्रीनशॉट इस नं. 9827701100 पर जरूर भेजें</div>
+                                </td>
+                                <td style="text-align: right;">बाकि</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">योग</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="bt bl" colspan="2">&nbsp;</td>
+                </tr>
+                <tr>                
+                    <td class="bt bl" colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="bt">
+                        <div style="font-size: 1.5rem;">शॉप नं. 187-ए, लवकुश अपार्टमेंट, महालक्ष्मी नगर, इंदौर</div>
+                        <div style="font-size: 1.3rem;">समय - सुबह 9 बजे से रात 8 बजे तक &nbsp;&nbsp;&nbsp; लंच समय - दोपहर 2 बजे से शाम 5 बजे तक </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="bt">
+                        <div style="text-align: left;">वितरण शुल्क ₹15 अनिवार्य </div>
+                        <div style="text-align: right;">हस्ताक्षर </div>
+                    </td>
+                </tr>
+            </table>
+        </div>  
+        <div class="page" id="page2">
+
+        </div>  
+    </div>
+    <script>
+        $(document).ready(function(){
+            console.log('read')
+            let page = $(document).find('#page').html()
+            $(document).find('#page2').html(page)
+            console.log(page)
+        })
+    </script>
+</body>
+</html>
