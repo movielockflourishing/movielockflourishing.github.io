@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +17,9 @@
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>
     <style>
+        html, body {
+            background-color: #f7f7f7;
+        }
          :root {
             --color: #005bd1;
         }
@@ -30,13 +35,16 @@
         }
         .billwrapper {
             display: flex;
+            align-items: center;
+            height: calc(100vh - 50px);
         }
         .bill {
             max-width: 500px;
             margin: 0 auto;
             flex: 0 0 50%;
-            border: 1px solid;
-            padding: 0 15px 10px 15px;
+            border: 1px dashed #ddd;
+            padding: 30px 50px;
+            background-color: #fff;
         }
         .bt { border-top: 1px solid }
         .bl { border-left: 1px solid }
