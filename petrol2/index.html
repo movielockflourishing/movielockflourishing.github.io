@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+    <style>
+        html, body {
+            background-color: #f7f7f7;
+        }
+         :root {
+            --color: #007dc6;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            color: var(--color);
+            font-family: 'Rubik',sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.5;
+        }
+        .billwrapper {
+            display: flex;
+            align-items: center;
+            height: calc(100vh - 50px);
+        }
+        .bill {
+            max-width: 460px;
+            margin: 0 auto;
+            flex: 0 0 50%;
+            border: 1px dashed #ddd;
+            padding: 30px 50px;
+            background-color: #fff;
+        }
+        .bt { border-top: 1px solid }
+        .bl { border-left: 1px solid }
+        .br { border-right: 1px solid }
+        .bb { border-bottom: 1px solid }
+        table {
+            width: 100%;
+        }
+        .name {
+            font-size: 25px;
+            font-weight: 900;
+        }
+        .address, .contact {
+            font-size: 15px;
+        }
+        td {
+            position: relative;
+        }
+        .logo {
+            
+            top: 0;
+        }
+        .logo img {
+            position: absolute;
+            width: 65px;
+            top: 50%;
+            transform: translateY(-50%);            
+        }
+        .logo.logo-left img {
+            left: 0;
+        }
+        .logo.logo-right img {
+            right: 0;
+        }
+        .c {
+            text-align: center;
+        }
+        th, td {
+            padding: 8px;
+        }
+        .l {
+            text-align: left;
+        }
+        td th {
+            padding: 0px 8px;
+        }
+        td td{
+            padding: 4px 8px;
+        }
+        .memo {
+            display: inline-flex;
+            align-items: center;
+            background: var(--color);
+            padding: 0 4px;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 1.4;
+            vertical-align: super;            
+        }
+        .bgl {
+            position: relative;
+        }
+        .bgl .bglspan {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color);
+            display: flex;
+            z-index: 2;
+            opacity: 0.1;
+        }
+        .bgl .bglspantop  {
+            z-index: 5;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <div class="billwrapper">
+        <div id="page" class="bill">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="100%" style="padding-left: 0;padding-right: 0;">
+                        <div style="display: flex;justify-content: space-between;">
+                            <span style="flex: 0 0 33.33%;font-size: 12px;position: relative;">
+                                <span style="font-size: 13px;white-space: nowrap;position: absolute;left: 0;">GSTIN : 23AAKPO8184B1ZO</span>
+                            </span>
+                            <span style="flex: 0 0 33.33%;position: relative;bottom: 0px;">
+                                <img style="width: 20px;" src="khalsa.svg" alt="">
+                            </span>
+                            <span style="flex: 0 0 33.33%;font-size: 14px;position: relative;">
+                                <span class="memo" style="font-size: 13px;white-space: nowrap;position: absolute;right: 0;">CASH/CREDIT MEMO</span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bb c" style="width: 57px;">
+                        <div class="logo logo-left">
+                            <img src="data:image/png;base64,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" alt="">
+                        </div>
+                    </td>
+                    <td class="bb l" colspan="2">
+                        <div class="l name">Oberoi Filling Station</div>
+                        <div class="l address">Dealer: Bharat Petroleum Corporation Limited</div>
+                        <div class="l address">Pipliya Kumar, Nipania Road, Indore - 452 010 (M.P.)</div>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="100%" style="padding-right: 0;padding-left: 0;">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="white-space: nowrap;;padding-right: 0;;width: 10%;" class="l" colspan="2">
+                                    <div style="display: flex;">
+                                        <span style="flex: 0 0 30px;text-align: left;">No.</span>
+                                        <div style="flex:1;border-bottom: 1px dashed var(--color);height: 10px;text-align: left;padding-bottom: 12px;position: relative;bottom: 6px;color: #f00;font-size: 18px;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="white-space: nowrap;;padding-right: 0;;width: 10%;" class="l">
+                                    <div style="display: flex;">
+                                        <span style="flex: 0 0 91px;text-align: left;">Vehicle No.</span>
+                                        <div style="flex:1;border-bottom: 1px dashed var(--color);height: 10px;text-align: left;padding-bottom: 12px;position: relative;bottom: 6px;color: #f00;font-size: 18px;"></div>
+                                    </div>
+                                </td>                                
+                                <td style="white-space: nowrap;;padding-right: 0;;width: 10%;" class="l">
+                                    <div style="display: flex;">
+                                        <span style="flex: 0 0 41px;text-align: left;">Date</span>
+                                        <div style="flex:1;border-bottom: 1px dashed var(--color);height: 10px;text-align: left;padding-bottom: 12px;position: relative;bottom: 6px;color: #f00;font-size: 18px;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="white-space: nowrap;;padding-right: 0;;width: 10%;" class="l" colspan="2">
+                                    <div style="display: flex;">
+                                        <span style="flex: 0 0 50px;text-align: left;">Name</span>
+                                        <div style="flex:1;border-bottom: 1px dashed var(--color);height: 10px;text-align: left;padding-bottom: 12px;position: relative;bottom: 6px;color: #f00;font-size: 18px;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="100%" style="padding-right: 0;padding-left: 0;padding-bottom: 0;">
+                        <table cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" class="bt bl l">Particulars</th>
+                                    <th rowspan="2" class="bt bl">Qty. </th>
+                                    <th rowspan="2" class="bt bl">Rate </th>
+                                    <th class="bt bl br">Amount </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bt bl l">MS (Petrol)</td>
+                                    <td class="bt bl"></td>
+                                    <td class="bt bl"></td>
+                                    <td class="bt bl br"></td>
+                                </tr>
+                                <tr>
+                                    <td class=" bl l">HSD (Diesel)</td>
+                                    <td class=" bl"></td>
+                                    <td class=" bl"></td>
+                                    <td class=" bl br"></td>
+                                </tr>
+                                <tr>
+                                    <td class=" bl l">Lubricant (Oil)</td>
+                                    <td class=" bl"></td>
+                                    <td class=" bl"></td>
+                                    <td class=" bl br"></td>
+                                </tr>
+                                <tr>
+                                    <td class=" bl l">&nbsp;</td>
+                                    <td class=" bl"></td>
+                                    <td class=" bl"></td>
+                                    <td class=" bl br"></td>
+                                </tr>
+                                <tr>
+                                    <td class=" bl l">&nbsp;</td>
+                                    <td class=" bl"></td>
+                                    <td class=" bl"></td>
+                                    <td class=" bl br"></td>
+                                </tr>
+                                <tr>
+                                    <td class=" bb bl l">&nbsp;</td>                                
+                                    <td class=" bb bl l">&nbsp;</td>                                
+                                    <td class="bt bb bl bgl"><span class="bglspan"></span><span class="bglspantop">Total</span></td>
+                                    <td class="bt bb bl br bgl"><span class="bglspan"></span><span class="bglspantop">&nbsp;</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="100%" style="padding-top: 0;padding-left: 0;">
+                        <div style="display: flex;align-items: flex-start;justify-content: space-between;"> 
+                            <span style="font-size: 13px;padding-top: 10px;">E. & O.E</span>
+                            <span style="font-size: 13px;padding-top: 10px;">Thanks!</span>
+                            <span style="padding-top: 10px;display: inline-flex;flex: 0 0 50%;">
+                                <span style="flex: 0 0 65px; font-size: 13px;">Signature</span>
+                                <div style="flex:1;border-bottom: 1px dashed var(--color);height: 10px;text-align: left;padding-bottom: 12px;position: relative;bottom: 6px;color: #f00;font-size: 18px;"></div>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="page2" class="bill">
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            let page = $(document).find('#page').html()
+            $(document).find('#page2').html(page)
+            console.log(page)
+        })
+    </script>
+</body>
+</html>
